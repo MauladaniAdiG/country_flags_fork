@@ -72,7 +72,7 @@ class _RectangularFlag extends FlagImage {
       height: _height,
       child: _ImageWidget(
         flagCode,
-        BoxFit.contain,
+        BoxFit.cover,
       ),
     );
   }
@@ -100,7 +100,7 @@ class _RoundedRectangularFlag extends FlagImage {
         key: const Key('countryFlags_RoundedRectangularFlag_SizedBox'),
         width: _width,
         height: _height,
-        child: _ImageWidget(flagCode, BoxFit.contain),
+        child: _ImageWidget(flagCode, BoxFit.cover),
       ),
     );
   }
@@ -124,7 +124,7 @@ class _CircularFlag extends FlagImage {
       key: const Key('countryFlags_CircularFlag_SizedBox'),
       width: _width,
       height: _height,
-      child: ClipOval(child: _ImageWidget(flagCode, BoxFit.contain)),
+      child: ClipOval(child: _ImageWidget(flagCode, BoxFit.cover)),
     );
   }
 }
