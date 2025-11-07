@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:jovial_svg/jovial_svg.dart';
 
 /// A widget that displays a country flag as an image.
 abstract class FlagImage extends StatelessWidget {
@@ -74,6 +72,7 @@ class _RectangularFlag extends FlagImage {
       height: _height,
       child: _ImageWidget(
         flagCode,
+        BoxFit.contain,
       ),
     );
   }
@@ -101,7 +100,7 @@ class _RoundedRectangularFlag extends FlagImage {
         key: const Key('countryFlags_RoundedRectangularFlag_SizedBox'),
         width: _width,
         height: _height,
-        child: _ImageWidget(flagCode),
+        child: _ImageWidget(flagCode, BoxFit.contain),
       ),
     );
   }
@@ -125,7 +124,7 @@ class _CircularFlag extends FlagImage {
       key: const Key('countryFlags_CircularFlag_SizedBox'),
       width: _width,
       height: _height,
-      child: ClipOval(child: _ImageWidget(flagCode)),
+      child: ClipOval(child: _ImageWidget(flagCode, BoxFit.contain)),
     );
   }
 }
@@ -147,19 +146,17 @@ class _NotFoundFlag extends FlagImage {
 class _ImageWidget extends StatelessWidget {
   const _ImageWidget(
     this.flagCode,
+    this.fit,
   );
 
+  final BoxFit fit;
   final String flagCode;
 
   @override
   Widget build(BuildContext context) {
-    return ScalableImageWidget.fromSISource(
-      key: const Key('svgFlag'),
-      si: ScalableImageSource.fromSI(
-        rootBundle,
-        'packages/country_flags/res/si/$flagCode.si',
-      ),
-      fit: BoxFit.cover,
+    return Image.asset(
+      'packages/country_flags/res/png/$flagCode.png',
+      fit: fit,
     );
   }
 }

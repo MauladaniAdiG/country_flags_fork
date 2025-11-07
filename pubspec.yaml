@@ -11,10 +11,6 @@ dependencies:
   collection: ^1.19.1
   flutter:
     sdk: flutter
-<<<<<<< HEAD
-  jovial_svg: ^1.1.25
-=======
->>>>>>> 51ef1af (feat: export asset to png)
 
 dev_dependencies:
   flutter_test:
